@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "493492445365",
+    "firebase_url": "https://app-sportamador-brasil.firebaseio.com",
+    "project_id": "app-sportamador-brasil",
+    "storage_bucket": "app-sportamador-brasil.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:493492445365:android:40ed022362e7bc35f3defc",
+        "android_client_info": {
+          "package_name": "com.example.hello"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "493492445365-souuoavsa1359c66dcroj2a0g2rpefto.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB16B1B1qcM5C6gbuisyjPvO6ISO_8P0qs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "493492445365-souuoavsa1359c66dcroj2a0g2rpefto.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
