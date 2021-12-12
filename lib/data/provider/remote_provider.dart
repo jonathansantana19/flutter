@@ -2,14 +2,22 @@ import 'dart:convert';
 
 import 'package:get/get_connect.dart';
 
-const baseUrl = 'http://gerador-nomes.herokuapp.com/nomes/10';
-
-
+// https://retoolapi.dev/dgHfUO/data
 class Remoter extends GetConnect {
 
 
  Future<dynamic> getUser(int id) async{
-    final response = await get('https://retoolapi.dev/iZwVGw/data');
+    final response = await get('https://retoolapi.dev/dgHfUO/data');
+    if(response.status.hasError){
+      return Future.error(response.statusText!);
+    } else {
+      return response.body;
+    }
+  }
+
+
+   Future<dynamic> getUserBydId(int id) async{
+    final response = await get('https://retoolapi.dev/dgHfUO/data/${id}');
     if(response.status.hasError){
       return Future.error(response.statusText!);
     } else {

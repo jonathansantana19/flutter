@@ -9,9 +9,9 @@ Future<dynamic> getAll(){
   print(api.getUser(1));
   return api.getUser(1);
 }
-// getId(id){
-//   return api.getId(id);
-// }
+getId(id){
+  return api.getUserBydId(id);
+}
 // delete(id){
 //   return api.delete(id);
 // }

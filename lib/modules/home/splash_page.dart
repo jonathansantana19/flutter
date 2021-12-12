@@ -14,7 +14,7 @@ class SplashPage extends StatelessWidget {
   }
 
   changeScreen() async {
-    Get.toNamed('/login');
+    Get.toNamed('/dashboard');
   }
 
   @override

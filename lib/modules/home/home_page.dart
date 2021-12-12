@@ -16,10 +16,10 @@ class HomePage extends StatelessWidget {
           style: TextStyle(color: Colors.black),
         ),
         centerTitle: true,
-         leading: IconButton(
-           icon: Icon(Icons.exit_to_app),
-           onPressed: (){},
-         ),
+        leading: IconButton(
+          icon: Icon(Icons.exit_to_app),
+          onPressed: () {},
+        ),
         actions: [
           IconButton(icon: Icon(Icons.refresh), onPressed: null),
           IconButton(
@@ -47,21 +47,14 @@ class HomePage extends StatelessWidget {
         //     )
         // ),
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        unselectedItemColor: Colors.black,
-        selectedItemColor: Color(0xff465bd8),
-        items: bottomItems(),
-        onTap: _homeController.onChange,
-        currentIndex: _homeController.index.value,
-      ),
+      // bottomNavigationBar: BottomNavigationBar(
+      //   unselectedItemColor: Colors.black,
+      //   selectedItemColor: Color(0xff465bd8),
+      //   items: bottomItems(),
+      //   onTap: _homeController.onChange,
+      //   currentIndex: _homeController.index.value,
+      // ),
     );
-  }
-
-  List<BottomNavigationBarItem> bottomItems() {
-    return [
-      BottomNavigationBarItem(icon: Icon(Icons.foundation), label: "Home"),
-      BottomNavigationBarItem(icon: Icon(Icons.shopping_cart), label: "Cart"),
-    ];
   }
 
   wItemList(BuildContext context) {
@@ -92,72 +85,42 @@ class HomePage extends StatelessWidget {
                       borderRadius: BorderRadius.circular(30)),
                   child: Row(
                     children: [
-                      // Image.network(
-                      //   _homeController.itemItems[index].logo.toString(),
-                      //   width: size.width / 4,
-                      //   height: size.width / 4,
-                      // ),
                       SizedBox(
                         width: 10,
                       ),
                       Flexible(
                         child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
-                            Text(_homeController.itemItems[index].localidade
-                                .toString()),
+                            Text(
+                              _homeController.itemItems[index].localidade
+                                  .toString(),
+                            ),
                             SizedBox(
                               height: 20,
                             ),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                FloatingActionButton(
-                                  backgroundColor: Color(0xff465bd8),
-                                  onPressed: () {
-                                    // cc.addToCart(controller.itemItems[index]);
-                                    Get.to(() => PartidaPage(),
-                                        arguments: [index]);
-                                  },
-                                  // child: Icon(
-                                  // Foundation.shopping_cart,
-                                  // size: 20,
-                                  // ),
-                                  mini: true,
-                                  materialTapTargetSize:
-                                      MaterialTapTargetSize.shrinkWrap,
-                                  heroTag: null,
+                                Image.network(
+                                  _homeController.itemItems[index].logo
+                                      .toString(),
+                                  width: size.width / 8,
+                                  height: size.width / 8,
                                 ),
                                 Text(
-                                  _homeController.itemItems[index].nome
-                                          .toString() +
-                                      _homeController.itemItems[index].placar
-                                          .toString() +
-                                      "\X" +
-                                      _homeController.itemItems[index].placarB
-                                          .toString() +
-                                      _homeController.itemItems[index].nomeB
-                                          .toString(),
+                                  "${_homeController.itemItems[index].nome} ${_homeController.itemItems[index].resultado} X ${_homeController.itemItems[index].resultadoB} ${_homeController.itemItems[index].nomeB}",
                                   style: TextStyle(
-                                      // fontSize: 12.0.sp,
+                                      fontSize: 13.0,
                                       color: Color(0xff465bd8),
                                       fontWeight: FontWeight.bold),
                                 ),
-                                FloatingActionButton(
-                                  backgroundColor: Color(0xff465bd8),
-                                  onPressed: () {
-                                    Get.to(() => PartidaPage(),
-                                        arguments: [index]);
-                                  },
-                                  // child: Icon(
-                                  // Foundation.shopping_cart,
-                                  // size: 20,
-                                  // ),
-                                  mini: true,
-                                  materialTapTargetSize:
-                                      MaterialTapTargetSize.shrinkWrap,
-                                  heroTag: null,
-                                )
+                                Image.network(
+                                  _homeController.itemItems[index].logoB
+                                      .toString(),
+                                  width: size.width / 8,
+                                  height: size.width / 8,
+                                ),
                               ],
                             )
                           ],
@@ -166,7 +129,11 @@ class HomePage extends StatelessWidget {
                     ],
                   ),
                 ),
-                onTap: () {},
+                onTap: () {
+                  Get.to(PartidaPage(
+                    model: _homeController.itemItems[index],
+                  ));
+                },
               );
             }));
   }

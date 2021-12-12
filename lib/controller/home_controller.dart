@@ -1,15 +1,14 @@
 import 'package:get/get.dart';
 import 'package:hello/data/model/item_model.dart';
-import 'package:hello/data/model/partidas_model.dart';
 import 'package:hello/data/repository/remote_repository.dart';
 
 class HomeController extends GetxController {
-  
   final RemoterRepository remoteRepository = RemoterRepository();
 
   var categoryItems = List<String>.empty().obs;
   var itemItems = List<ItemModel>.empty().obs;
   var loading = true.obs;
+  var ite = ItemModel().obs;
 
   @override
   void onInit() {
@@ -20,7 +19,7 @@ class HomeController extends GetxController {
 
   var index = 0.obs;
 
-  void onChange(int index){
+  void onChange(int index) {
     this.index.value = index;
   }
 
@@ -37,17 +36,20 @@ class HomeController extends GetxController {
   Future<void> fetchItems() async {
     loading.value = true;
     itemItems.clear();
-    var getItems = await remoteRepository.getAll();
+    var listJogos = await remoteRepository.getAll();
     loading.value = false;
-    if (getItems != null) {
-      getItems.forEach((item) {
-      print(item.toString());
+    if (listJogos != null) {
+      listJogos.forEach((item) {
         itemItems.add(ItemModel.fromJson(item));
       });
     }
   }
 
-  ItemModel getDetails(int index){
-    return itemItems[index];
+  ItemModel getDetails(ItemModel itemModel){
+    print('itemItems');
+    print(itemModel);
+    return itemModel;
+
   }
+
 }

@@ -8,11 +8,11 @@ class ItemModel {
   String? category;
   String? image;
   String? imageB;
-  String? resultado;
-  String? resultadoB;
+  int? resultado;
+  int? resultadoB;
   String? localidade;
-  String? placar;
-  String? placarB;
+  int? placar;
+  int? placarB;
   String? logo;
   String? logoB;
 
@@ -45,8 +45,8 @@ class ItemModel {
     imageB = json['logoB'];
     nome = json['nome'];
     nomeB = json['nomeB'];
-    resultado = json['placar'];
-    resultadoB = json['placarB'];
+    resultado = json['resultado'];
+    resultadoB = json['resultadoB'];
     localidade = json['localidade'];
     logo = json['logo'];
     logoB = json['logoB'];
